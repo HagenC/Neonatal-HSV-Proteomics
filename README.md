@@ -43,7 +43,7 @@ This repository contains R scripts that conduct data analysis for OLINK proteomi
 
 ### **7. ANOVA Testing and Posthoc Test**
    * Conducts ANOVA to assess the association between protein expression (NPX) and severity categories.
-   * Significant results undergo a posthoc test for further insights.
+   * Significant results undergo a posthoc test.
 
 ### **8. Permutation Testing**
    * Computationally intensive section that runs permutation tests on ANOVA results to ensure robustness.
@@ -56,14 +56,13 @@ This repository contains R scripts that conduct data analysis for OLINK proteomi
 * Visualizes PCA outliers across assay panels.
 
 ### **Forest Plot**
-* Shows significant differences between control and disease groups.
+* Shows significant differences between control and DIS.
 
 ### **Heatmap**
 * Visualizes NPX values for proteins with posthoc significance across severity groups.
 
 ### **Boxplot**
-* Compares NPX levels across assays and phenotypes for selected significant assays.
+* Compares NPX levels across assays and severity groups for selected posthoc-significant assays.
 
 ---
 
-This README provides a clear structure for users and researchers to understand and use the repository effectively.
