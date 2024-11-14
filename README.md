@@ -1,6 +1,6 @@
 # **Neonatal-HSV-Proteomics**
 
-This repository contains R scripts that conduct data analysis for OLINK proteomics data used in the article, *Proteomic profiling of neonatal herpes simplex virus infection on dried blood spots: exploring screening perspectives,* published in *Communications Medicine.* The analysis includes data quality control, principal component analysis (PCA) for outlier detection, group-based association testing, ANOVA, and permutation tests. Additionally, it generates several visualizations, including PCA plots, forest plots, heatmaps, and boxplots, used in the publication.
+This repository contains R scripts that conduct data analysis for OLINK proteomics data used in the article, *Proteomic profiling of neonatal herpes simplex virus infection on dried blood spots: exploring screening perspectives,* published in *Communications Medicine.* The analysis includes data quality control, principal component analysis (PCA) for outlier detection, covariate association testing, ANOVA, posthoc ANOVA and permutation tests. Additionally, it generates several visualizations, including PCA plots, forest plot, heatmap, and boxplot, used in the publication.
 
 ---
 
@@ -9,7 +9,7 @@ This repository contains R scripts that conduct data analysis for OLINK proteomi
 ### **Data Preparation**
 
 1. **Update the file paths**: Prepare your covariate and OLINK assay data files:
-   * **covariates**: Contains data such as `SampleID`, `Bday` (Birthday), `GA` (Gestational Age in weeks), `BW` (Birthweight in grams), `Sex` (M/F), `Severity` (Control, SEM, CNS, DIS), and `caco` (case/control).
+   * **covariates**: Contains `SampleID`, `Bday` (Birthday), `GA` (Gestational Age in weeks), `BW` (Birthweight in grams), `Sex` (M/F), `Severity` (Control, SEM, CNS, DIS), and `caco` (case/control).
    * **olink_data**: Contains OLINK assay data, including variables such as `SampleID`, `Assay`, `QC_Warning`, `NPX`, etc.
 
 ### **Requirements**
@@ -25,7 +25,7 @@ This repository contains R scripts that conduct data analysis for OLINK proteomi
 
 ### **2. Data Merging and Initial Quality Control**
 * Merges covariate and assay data.
-* Filters out "CTRL" assays for further analysis.
+* Filters out "CTRL" assays.
 
 ### **3. PCA Outlier Detection**
    * Performs Principal Component Analysis (PCA) for each assay panel to detect and flag outliers based on a 3-standard-deviation rule.
