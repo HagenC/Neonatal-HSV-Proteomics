@@ -1,37 +1,69 @@
-# Neonatal-HSV-Proteomics
+# **Neonatal-HSV-Proteomics**
 
-The R scripts conducts data analysis for OLINK proteomics data used in article the "Proteomic profiling of neonatal herpes simplex virus infection on dried blood spots: exploring screening perspectives" published in Communications Medicine.
-The analysis involving data quality control, principal component analysis (PCA) for outlier detection, group-based association testing, ANOVA, and permutation tests. Additionally, it generates several visualizations, including PCA plots, forest plots, heatmaps, and boxplots used in the publication. 
+This repository contains R scripts that conduct data analysis for OLINK proteomics data used in the article, *Proteomic profiling of neonatal herpes simplex virus infection on dried blood spots: exploring screening perspectives,* published in *Communications Medicine.* The analysis includes data quality control, principal component analysis (PCA) for outlier detection, group-based association testing, ANOVA, and permutation tests. Additionally, it generates several visualizations, including PCA plots, forest plots, heatmaps, and boxplots, used in the publication.
 
+---
 
-Usage:
-Data Preparation
-Update the file paths: covariates and olink_data.
-covariates : Contains covariate data: SampleID, Bday(Birthday), GA(gestational age, weeks), BW(Birthweigth, grams), Sex(M/F), Severity(Control, SEM, CNS, DIS), caco (case/control)
-olink_data: OLINK assay data, including variables like SampleID, Assay, QC_Warning, NPX etc..
+## **Usage**
 
-Requirements:
-The script installs any missing packages automatically.
+### **Data Preparation**
 
-Script Structure and Functions:
-Import Packages and Data
-Data Merging and Initial Quality Control
-PCA Outlier Detection:
-  - This section performs Principal Component Analysis (PCA) for each assay panel to detect and mark outliers based on the 3-standard-deviation rule.
-REDCAP(group) Quality Control
-  - This section checks are conducted to ensure that redcap groups match in sex, GA (gestational age), and BW (body weight), and any mismatched entries are removed.
-REDCAP(group)-pairs Quality Control
-  - This section ensures that each assay group has both case and control samples
-Covariate Associations:
-  -  This section checks for associations between NPX values and covariates, including SEX, BW, GA, and YEAR
-ANOVA Testing and posthoc test:
-  - ANOVA is performed to assess the association between protein expression (NPX) and severity categories. Significant results undergo a posthoc test
-Permutation Testing 
-  - Very computationally intensive section that runs permutation tests on the ANOVA results to ensure robustness
+1. **Update the file paths**: Prepare your covariate and OLINK assay data files:
+   * **covariates**: Contains data such as `SampleID`, `Bday` (Birthday), `GA` (Gestational Age in weeks), `BW` (Birthweight in grams), `Sex` (M/F), `Severity` (Control, SEM, CNS, DIS), and `caco` (case/control).
+   * **olink_data**: Contains OLINK assay data, including variables such as `SampleID`, `Assay`, `QC_Warning`, `NPX`, etc.
 
-Plots:
-PCA outlier detection
-Forest
-Heatmap
-Boxplot
-    
+### **Requirements**
+
+* The script automatically installs any missing packages required for the analysis.
+
+---
+
+## **Script Structure and Functions**
+
+### **1. Import Packages and Data**
+* Checks for required packages and loads them. Automatically installs any missing packages.
+
+### **2. Data Merging and Initial Quality Control**
+* Merges covariate and assay data.
+* Filters out "CTRL" assays for further analysis.
+
+### **3. PCA Outlier Detection**
+   * Performs Principal Component Analysis (PCA) for each assay panel to detect and flag outliers based on a 3-standard-deviation rule.
+
+### **4. REDCAP (Group) Quality Control**
+   * Ensures redcap groups match in `sex`, `GA` (gestational age), and `BW` (body weight).
+   * Removes any entries with mismatches in these criteria.
+
+### **5. REDCAP (Group)-Pairs Quality Control**
+   * Ensures that each assay group contains both case and control samples.
+   * Excludes unpaired assays from analysis.
+
+### **6. Covariate Associations**
+   * Checks for associations between NPX values and covariates, including `SEX`, `BW`, `GA`, and `YEAR`.
+
+### **7. ANOVA Testing and Posthoc Test**
+   * Conducts ANOVA to assess the association between protein expression (NPX) and severity categories.
+   * Significant results undergo a posthoc test for further insights.
+
+### **8. Permutation Testing**
+   * Computationally intensive section that runs permutation tests on ANOVA results to ensure robustness.
+
+---
+
+## **Plots**
+
+### **PCA Outlier Detection**
+* Visualizes PCA outliers across assay panels.
+
+### **Forest Plot**
+* Shows significant differences between control and disease groups.
+
+### **Heatmap**
+* Visualizes NPX values for proteins with posthoc significance across severity groups.
+
+### **Boxplot**
+* Compares NPX levels across assays and phenotypes for selected significant assays.
+
+---
+
+This README provides a clear structure for users and researchers to understand and use the repository effectively.
